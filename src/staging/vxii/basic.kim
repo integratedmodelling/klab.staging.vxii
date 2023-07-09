@@ -1,0 +1,11 @@
+namespace staging.vxii.basic;
+
+// TODO project config should state the needed resource plugins
+
+model geography:Elevation in m 
+   "Fake elevation model that will produce credible DEMs using fractals and needing no data."
+   using klab.geospatial.generators.terrain();
+   
+model geography:Slope in degree_angle
+   "Fake slope model that will produce credible slope configurations using fractals and needing no data."
+   using klab.geospatial.generators.terrain(roughness = 0.9, detail = 9, range = 0 to 80);
