@@ -3,7 +3,7 @@ namespace staging.vxii.basic;
 // TODO project manifest should state the needed resource plugins
 observe earth:Region named testregion
     over
-    	space(shape="EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))", grid="1 km"),
+    	space(shape="EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))", grid=1.km),
     	time(year=2010, step=1.day);
     	
 project private model earth:Region 
