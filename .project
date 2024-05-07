@@ -10,14 +10,8 @@
           <arguments>
          </arguments>
        </buildCommand>
-        <buildCommand>
-         <name>org.integratedmodelling.klab.ide.klabBuilder</name>
-          <arguments>
-         </arguments>
-       </buildCommand>
     </buildSpec>
    <natures>
-     <nature>org.integratedmodelling.klab.ide.klabNature</nature>
      <nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
    </natures>
 </projectDescription>
