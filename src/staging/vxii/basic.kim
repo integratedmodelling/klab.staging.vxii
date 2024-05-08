@@ -3,22 +3,41 @@ namespace staging.vxii.basic;
 // TODO project manifest should state the needed resource plugins
 //observe earth:Region named testregion
 //    over
-//    	space(shape="EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))", grid=1.km),
+//    	space(shape=, grid=1.km),
 //    	time(year=2010, step=1.day);
     	
+define observation testregion as {
+	semantics: earth:Region
+	space: {
+		shape: "EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))"
+		grid: 1.km
+	}
+	time: {
+		year: 2010
+		step: 1.day
+	}
+};
+
 project private model earth:Region
 	observing 
 		geography:Elevation in m,
 		geography:Slope in degree_angle;
 
+
 /**
+ * # Generated elevation surface
+ * 
  * Fake elevation model that will produce credible DEMs using fractals, needing no data.
  */
 model geography:Elevation in m
    using klab.geospatial.generators.terrain();
 
 /**
+ * # Generated slope surface
+ * 
  * Fake slope model that will produce credible slope configurations using fractals and needing no data.
- */   
+ *
+ * @warning if an elevation surface is also generated, the slope profile will *not* correspond to it.
+ */
 model geography:Slope in degree_angle
    using klab.geospatial.generators.terrain(roughness = 0.9, detail = 9, range = 0 to 80);
