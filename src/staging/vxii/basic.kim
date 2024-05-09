@@ -1,11 +1,5 @@
 namespace staging.vxii.basic;
 
-// TODO project manifest should state the needed resource plugins
-//observe earth:Region named testregion
-//    over
-//    	space(shape=, grid=1.km),
-//    	time(year=2010, step=1.day);
-    	
 define observation testregion as {
 	semantics: earth:Region
 	space: {
@@ -23,6 +17,9 @@ project private model earth:Region
 		geography:Elevation in m,
 		geography:Slope in degree_angle;
 
+// you wish
+model presence of (infrastructure:Building whose economics:MarketValue > 2000000.EUR@2015)
+	where probability of earth:Flood > 0.7;
 
 /**
  * # Generated elevation surface
