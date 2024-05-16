@@ -6,6 +6,7 @@ define observation testregion as {
 		shape: "EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))"
 		grid: 1.km
 	}
+//	year: 2010 ...or...
 	time: {
 		year: 2010
 		step: 1.day
@@ -32,7 +33,7 @@ model geography:Elevation in m
 /**
  * # Generated slope surface
  * 
- * Fake slope model that will produce credible slope configurations using fractals and needing no data.
+ * Fake slope model that will produce half-credible slope configurations using fractals and needing no data.
  *
  * @warning if an elevation surface is also generated, the slope profile will *not* correspond to it.
  */
