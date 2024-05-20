@@ -1,5 +1,20 @@
 namespace staging.vxii.basic;
 
+/*
+ * TODO
+ * 
+ * Inputing a concept may trigger resolution (as in the explorer currently) but
+ * if resolution is disabled, may enter interactive definition of the desired
+ * observation. E.g. relationships may show all targets in context for manual
+ * connection, or quality may show random or AI generators. Disabled/interactive
+ * resolution is a special SCENARIO that should always be available.
+ */
+
+/**
+ * It's possible to not add semantics to implement
+ * empty contexts. May have extents or not. May have
+ * children, e.g. 2 cities + one travel connection between them.
+ */
 define observation testregion as {
 	semantics: earth:Region
 	space: {
