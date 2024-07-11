@@ -29,13 +29,13 @@ define observation testregion as {
 };
 
 project private model earth:Region
-	observing 
+	observing
 		geography:Elevation in m,
 		geography:Slope in degree_angle;
 
 // you wish
-model presence of (infrastructure:Building whose economics:MarketValue > 2000000.EUR@2015)
-	where probability of earth:Flood > 0.7;
+//model presence of (infrastructure:Building whose economics:MarketValue > 2000000.EUR@2015)
+//	where probability of earth:Flood > 0.7;
 
 /**
  * # Generated elevation surface
