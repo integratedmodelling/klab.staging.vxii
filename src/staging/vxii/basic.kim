@@ -28,6 +28,14 @@ define observation testregion as {
 	}
 };
 
+// yes - this can also be put in as config, built based on user and modified
+// scenarios may set the observer by giving them a conventional name (or that
+// of the scenario)
+define observer testobserver as {
+   geometry: explorer
+   semantics: valuation:Stakeholder social:Institution
+};
+
 project private model earth:Region
 	observing
 		geography:Elevation in m,
