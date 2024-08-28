@@ -33,7 +33,7 @@ define observation testregion as {
 // of the scenario)
 define observer testobserver as {
    geometry: explorer
-   semantics: valuation:Stakeholder social:Institution
+   semantics: valuation:Stakeholder society:Institution
 };
 
 project private model earth:Region
