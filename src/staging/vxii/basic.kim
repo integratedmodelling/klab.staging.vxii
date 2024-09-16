@@ -21,9 +21,12 @@ define observation testregion as {
 		shape: "EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))"
 		grid: 1.km
 	}
-//	year: 2010 ...or...
 	time: {
-		year: 2010
+		// can have year, hour, day, month, ... all admit 'default'
+		year: default
+		// from: -- beginning
+		// until: -- if present, period locator represent the beginning. Can say 'next' as
+		//  a default
 		step: 1.day
 	}
 };
