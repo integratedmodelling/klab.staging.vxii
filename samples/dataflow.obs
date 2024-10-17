@@ -1,0 +1,77 @@
+/*
+ * This is the serialized form of a dataflow, which starts existing as a runtime data structure with
+ * less info than this. When it contains no secondary resolution strategies it
+ * represents a repeatable algorithm that will reproduce results exactly, as long as the same versions
+ * of the required resources are used.
+ * 
+ * In this version I leave "exact" mediations out, assuming they can be done inline without being written
+ * out. 
+ */
+dataflow petardo.xxhw
+	version 0.01
+	coverage {
+		// coverage of the entire dataflow - NOT the coverage of resolution but the intersected
+		// coverage of all the resources used in it. Includes the geometry parameters that represent
+		// the "view" embedded in it and becomes the geometry of the resource if the dataflow is stored.
+	}
+	// all requirements with their versions at the time of resolution. The dataflow can run with
+	// higher versions, but only these versions will reproduce the same results and guarantee a match
+	// to the coverage. Availability of the resources determines the "online" status of a resource
+	// representing this dataflow.
+	requires 
+		worldview im@2.3.1
+		resources 
+			dio:can:cul:vzc@1.3.0,
+			io:porco:can:buo@2.3.2
+		components 
+			klab.adapter.ogc@3.1.2 (klab.cristo, klab.vector),
+			klab.adapter.openeo@3.1.2
+		namespaces
+			zio.patacca@1.22.3;
+
+/*
+ * These need to be in the prescriptive dataflow but aren't part of the runtime data structure
+ * because it refers to an active DT that already contains the IDs and the geometries.
+ */
+define geometry g1 as {
+}
+
+define observation o1 as {
+}
+
+/*
+ * Here we use "resolve <string ID>" (with each ID defined above as an observation) for externally 
+ * submitted observations, or "observe <concept>" for observations created during workflow execution. 
+ * The inline dataflow uses the same long IDs for observations and their actuator. When running a
+ * serialized dataflow, the observations should get a long ID and be matched to the full URN of the
+ * actuator (petardo.xxhw.o1) through a lookup table.
+ */
+resolve o1
+ 	using basic.substantial.direct
+	(
+		/*
+		 * These are sub-actuators, executed before the "apply" contextualizers. Actuator's URN
+		 * when using a concept will be the path to it + the reference name of the observable (
+		 * in this case petardo.xxhw.o1.geography__Elevation).
+		 */
+		observe	geography:Elevation in m
+			using basic.dependent.direct
+			apply klab.urn.resolver(urn="dio.can.elevation"),
+		observe geography:Slope in degree_angle
+			using basic.dependent.direct
+			apply klab.urn.resolver(urn="dio.can.slope"),
+		 // ref from previous observation (ID or observable) with different local name
+		reference geography:Aspect as ziocan
+	)
+	apply
+		porco.zio(), 
+		porca.madonna() then {
+			// these are operations from unresolved strategies. Each operation must be substituted with another dataflow, 
+			// which in turn can contain other unresolved strategies, and must be executed in the context created 
+			// by the contextualizers that precede it. The dataflow is fully resolved and 
+			// storeable when no unresolved strategies remain.
+			resolve each demography:SocialAgent  // these are the contextualized operations from the strategy
+			observe each demography:SocialConnection {
+				resolve demography:SocialConnection optional
+			}
+		};
