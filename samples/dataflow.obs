@@ -8,7 +8,7 @@
  * out. 
  */
 dataflow petardo.xxhw
-	version 0.01
+	// version is optional and should probably only matter in a resource, where it's external
 	coverage {
 		// coverage of the entire dataflow - NOT the coverage of resolution but the intersected
 		// coverage of all the resources used in it. Includes the geometry parameters that represent
@@ -65,7 +65,8 @@ resolve o1
 	)
 	apply
 		porco.zio(), 
-		porca.madonna() then {
+		porca.madonna() 
+		then {
 			// these are operations from unresolved strategies. Each operation must be substituted with another dataflow, 
 			// which in turn can contain other unresolved strategies, and must be executed in the context created 
 			// by the contextualizers that precede it. The dataflow is fully resolved and 
