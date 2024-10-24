@@ -54,7 +54,7 @@ project private model earth:Region
  * Fake elevation model that will produce credible DEMs using fractals, needing no data.
  */
 model geography:Elevation in m
-   using klab.geospatial.generators.terrain();
+   using klab.generators.geospatial.terrain();
 
 /**
  * # Generated slope surface
@@ -64,4 +64,4 @@ model geography:Elevation in m
  * @warning if an elevation surface is also generated, the slope profile will *not* correspond to it.
  */
 model geography:Slope in degree_angle
-   using klab.geospatial.generators.terrain(roughness = 0.9, detail = 9, range = 0 to 80);
+   using klab.generators.geospatial.terrain(roughness = 0.9, detail = 9, range = 0 to 80);
