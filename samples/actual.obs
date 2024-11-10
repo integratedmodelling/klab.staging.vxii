@@ -1,0 +1,11 @@
+dataflow dio.porco
+;
+resolve obs253
+   (
+      observe geography:Elevation in m
+         using substantial.direct
+         apply klab.geospatial.generators.terrain(),
+      observe geography:Slope in degree_angle
+         using substantial.direct
+         apply klab.geospatial.generators.terrain(roughness = 0.9, detail = 9, range = 0 to 80)
+   );

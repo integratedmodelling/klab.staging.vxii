@@ -3,7 +3,7 @@ namespace staging.vxii.basic;
 /*
  * TODO
  * 
- * Inputing a concept may trigger resolution (as in the explorer currently) but
+ * Inputting a concept through the UI may trigger resolution (as in the explorer currently) but
  * if resolution is disabled, may enter interactive definition of the desired
  * observation. E.g. relationships may show all targets in context for manual
  * connection, or quality may show random or AI generators. Disabled/interactive
@@ -33,7 +33,8 @@ define observation testregion as {
 
 // yes - this can also be put in as config, built based on user and modified
 // scenarios may set the observer by giving them a conventional name (or that
-// of the scenario)
+// of the scenario). It's simply an observation (with constraints on the type) 
+// but it is recognized as the observer of future observations when submitted.
 define observer testobserver as {
    geometry: explorer
    semantics: valuation:Stakeholder society:Institution
