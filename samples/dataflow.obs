@@ -7,7 +7,7 @@
  * In this version I leave "exact" mediations out, assuming they can be done inline without being written
  * out. 
  */
-dataflow petardo.xxhw
+dataflow petardo.xxhw.initialization
 	// version is optional and should probably only matter in a resource, where it's external
 	coverage {
 		// coverage of the entire dataflow - NOT the coverage of resolution but the intersected
@@ -24,8 +24,8 @@ dataflow petardo.xxhw
 			dio:can:cul:vzc@1.3.0,
 			io:porco:can:buo@2.3.2
 		components 
-			klab.adapter.ogc@3.1.2 (klab.cristo, klab.vector),
-			klab.adapter.openeo@3.1.2
+			klab.component.ogc@3.1.2 (klab.cristo, klab.vector),
+			klab.component.openeo@3.1.2
 		namespaces
 			zio.patacca@1.22.3;
 
