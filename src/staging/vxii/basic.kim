@@ -23,7 +23,7 @@ define observation testregion as {
 	}
 	time: {
 		// can have year, hour, day, month, ... all admit 'default'
-		year: default
+		year: 2012
 		// from: -- beginning
 		// until: -- if present, period locator represent the beginning. Can say 'next' as
 		//  a default
