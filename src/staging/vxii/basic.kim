@@ -12,8 +12,10 @@ namespace staging.vxii.basic;
 
 /**
  * It's possible to not add semantics to implement
- * empty contexts. May have extents or not. May have
+ * empty contexts. May have extents or not (observation will use the observer). May have
  * children, e.g. 2 cities + one travel connection between them.
+ * 
+ * Observing this should also set it as the context observation if none is active.
  */
 define observation testregion as {
 	semantics: earth:Region
@@ -35,9 +37,19 @@ define observation testregion as {
 // scenarios may set the observer by giving them a conventional name (or that
 // of the scenario). It's simply an observation (with constraints on the type) 
 // but it is recognized as the observer of future observations when submitted.
+//
+// The geometry is the OBSERVED geometry. If the observer needs a geometry of
+// its own, this should be passed using "geometry: ...".
+//
+// Using `geometry: explorer` should link to a geometry communication channel
 define observer testobserver as {
-   geometry: explorer
-   semantics: valuation:Stakeholder society:Institution
+   space: { 
+   		shape: "EPSG:4326 POLYGON ((43.28872310842408 -13.295192955773103, 26.248928186549076 -13.295192955773103, 26.248928186549076 -0.7159235681670992, 43.28872310842408 -0.7159235681670992, 43.28872310842408 -13.295192955773103))"
+   	}
+   	time: {
+   		year: 2012
+   	}
+   semantics: valuation:Stakeholder society:HumanIndividual
 };
 
 project private model earth:Region
@@ -66,3 +78,13 @@ model geography:Elevation in m
  */
 model geography:Slope in degree_angle
    using klab.generators.geospatial.terrain(roughness = 0.9, detail = 9, range = 0 to 80);
+   
+/**
+ * # Generated aspect surface
+ * 
+ * Not included in region resolver, use to test dependencies
+ *
+ * @warning if an elevation surface is also generated, the slope profile will *not* correspond to it.
+ */
+model geography:Aspect in degree_angle
+   using klab.generators.geospatial.terrain(roughness = 1.0, detail = 6, range = 0 to 90);   

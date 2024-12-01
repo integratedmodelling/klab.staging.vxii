@@ -7,8 +7,8 @@ define observation testregion as {
 		grid: 1.km
 	}
 	time: {
-		// can have year, hour, day, month, ... all admit 'default'
-		year: default
+		// can have year, hour, day, month, ... all admit 'current'
+		year: current
 		// from: -- beginning
 		// until: -- if present, period locator represent the beginning. Can say 'next' as
 		//  a default
