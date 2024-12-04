@@ -30,8 +30,9 @@ dataflow petardo.xxhw.initialization
 			zio.patacca@1.22.3;
 
 /*
- * These need to be in the prescriptive dataflow but aren't part of the runtime data structure
- * because it refers to an active DT that already contains the IDs and the geometries.
+ * These need to be in the "prescriptive" dataflow resulting from contextualization, but are not part 
+ * of the runtime data structure because it refers to an active DT that already contains the IDs and 
+ * the geometries.
  */
 define geometry g1 as {
 }
@@ -66,7 +67,7 @@ resolve o1
 	apply
 		porco.zio(), 
 		porca.madonna() 
-		then {
+		then {  // translates the "defer" contextualizer. Its presence means the dataflow is unresolved.
 			// these are operations from unresolved strategies. Each operation must be substituted with another dataflow, 
 			// which in turn can contain other unresolved strategies, and must be executed in the context created 
 			// by the contextualizers that precede it. The dataflow is fully resolved and 
