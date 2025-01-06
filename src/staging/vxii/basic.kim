@@ -18,7 +18,7 @@ namespace staging.vxii.basic;
  * Observing this should also set it as the context observation if none is active.
  */
 define observation testregion as {
-	semantics: earth:Region
+	semantics: earth:Terrestrial earth:Region
 	space: {
 		shape: "EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))"
 		grid: 1.km
@@ -52,8 +52,11 @@ define observer testobserver as {
    semantics: valuation:Stakeholder society:HumanIndividual
 };
 
-project private model earth:Region
+project private model earth:Terrestrial earth:Region
 	observing
+	// CHECK we could use a convention of omitting the 'each' to mean "within the spatial context"
+	// or even use that as default if a dep of a subject resolver
+//	   each earth:Freshwater earth:Region,
 		geography:Elevation in m,
 		geography:Slope in degree_angle;
 
@@ -66,8 +69,12 @@ project private model earth:Region
  * 
  * Fake elevation model that will produce credible DEMs using fractals, needing no data.
  */
-model geography:Elevation in m
+project private model geography:Elevation in m
    using klab.generators.geospatial.terrain();
+
+// fake freshwater regions
+project private model klab:random:objects:polygons 
+   as each earth:Freshwater earth:Region;
 
 /**
  * # Generated slope surface
@@ -76,7 +83,7 @@ model geography:Elevation in m
  *
  * @warning if an elevation surface is also generated, the slope profile will *not* correspond to it.
  */
-model geography:Slope in degree_angle
+project private model geography:Slope in degree_angle
    using klab.generators.geospatial.terrain(roughness = 0.9, detail = 9, range = 0 to 80);
    
 /**
@@ -86,5 +93,5 @@ model geography:Slope in degree_angle
  *
  * @warning if an elevation surface is also generated, the slope profile will *not* correspond to it.
  */
-model geography:Aspect in degree_angle
+project private model geography:Aspect in degree_angle
    using klab.generators.geospatial.terrain(roughness = 1.0, detail = 6, range = 0 to 90);   
