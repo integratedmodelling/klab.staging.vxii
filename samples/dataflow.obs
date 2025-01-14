@@ -34,11 +34,9 @@ dataflow petardo.xxhw.initialization
  * of the runtime data structure because it refers to an active DT that already contains the IDs and 
  * the geometries.
  */
-define geometry g1 as {
-}
+define geometry g1 as { }
 
-define observation o1 as {
-}
+define observation o1 as { }
 
 /*
  * Here we use "resolve <string ID>" (with each ID defined above as an observation) for externally 

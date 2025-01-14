@@ -56,7 +56,7 @@ project private model earth:Terrestrial earth:Region
 	observing
 	// CHECK we could use a convention of omitting the 'each' to mean "within the spatial context"
 	// or even use that as default if a dep of a subject resolver
-//	   each earth:Freshwater earth:Region,
+	   each earth:Freshwater earth:Region,
 		geography:Elevation in m,
 		geography:Slope in degree_angle;
 
@@ -89,9 +89,9 @@ project private model geography:Slope in degree_angle
 /**
  * # Generated aspect surface
  * 
- * Not included in region resolver, use to test dependencies
+ * Not included in region resolver, use to test dependencies. Makes a pointset of Poisson-distributed
+ * 0-1 values.
  *
  * @warning if an elevation surface is also generated, the slope profile will *not* correspond to it.
  */
-project private model geography:Aspect in degree_angle
-   using klab.generators.geospatial.terrain(roughness = 1.0, detail = 6, range = 0 to 90);   
+model klab:random:data:poisson as geography:Aspect in degree_angle;
