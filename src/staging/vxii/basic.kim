@@ -61,8 +61,10 @@ project private model earth:Terrestrial earth:Region
 		geography:Slope in degree_angle;
 
 // you wish
-//model presence of (infrastructure:Building whose economics:MarketValue > 2000000.EUR@2015)
-//	where probability of earth:Flood > 0.7;
+model presence of (infrastructure:Building whose economics:MarketValue > 2000000.EUR@2015)
+	where probability of earth:Flood > 0.7;
+//
+//model presence of (earth:Region) where geography:Elevation > 1;
 
 /**
  * # Generated elevation surface
