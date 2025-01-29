@@ -1,9 +1,24 @@
-behavior dioporc "Che caz" version 1.0
+behavior dioporc
+	"Che caz" 
+	version 1.0
 
 // Test: actions (w and w/o parameters); verbs w/wout params; groups; metadata and tag for all. Then the rest. 
 
 action puta:
 	ctx context new
+
+@test
+action test:
+	
+	a = File('porco.txt')
+	context.new: dt = $,  // comma means: wait for fire of previous group (then remove the listener)
+ 	dt.observe('staging.vxii.basic.testobserver'): observer = $,
+	dt.observe('staging.vxii.basic.testregion' :observer observer): region = $,
+//	for tile in [xxx] (
+//		dt.observe({{diocan:Merda}}, tile): 
+//	), // wait for ALL actions in group to complete
+	dt.export(a :output File('dioco'))
+	dt.close
 	
 @sburra	
 action vaca(a, b):
@@ -12,10 +27,10 @@ action vaca(a, b):
 	b = dio
 
 	assert [b == 'dio'], [a == 1]
-		:fail "puto" 
+		:fail "puto can" 
 		:success "aha"
 
-	suca :diocan {{ earth:Region }}
+	fail "" :diocan {{ earth:Region }}
 	
 	a = 2
 	dio(farf)
