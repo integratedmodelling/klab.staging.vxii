@@ -24,7 +24,7 @@ action test:
 
 	dt.close
 	
-@sburra	
+@sburro
 action vaca(a, b):
 
 	a = 1
