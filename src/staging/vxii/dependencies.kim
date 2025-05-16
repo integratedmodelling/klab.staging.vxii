@@ -1,17 +1,117 @@
 namespace staging.vxii.dependencies;
 
+/*
+ * TODO
+ * 
+ * Inputting a concept through the UI may trigger resolution (as in the explorer currently) but
+ * if resolution is disabled, may enter interactive definition of the desired
+ * observation. E.g. relationships may show all targets in context for manual
+ * connection, or quality may show random or AI generators. Disabled/interactive
+ * resolution is a special SCENARIO that should always be available.
+ */
+
+/**
+ * It's possible to not add semantics to implement
+ * empty contexts. May have extents or not (observation will use the observer). May have
+ * children, e.g. 2 cities + one travel connection between them.
+ * 
+ * Observing this should also set it as the context observation if none is active.
+ */
 define observation testregion as {
-	semantics: earth:Region
+	semantics: earth:Terrestrial earth:Region
 	space: {
 		shape: "EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))"
 		grid: 1.km
 	}
 	time: {
-		// can have year, hour, day, month, ... all admit 'current'
-		year: current
+		// can have year, hour, day, month, ... all admit 'default'
+		year: 2012
 		// from: -- beginning
 		// until: -- if present, period locator represent the beginning. Can say 'next' as
 		//  a default
 		step: 1.day
 	}
 };
+
+// yes - this can also be put in as config, built based on user and modified
+// scenarios may set the observer by giving them a conventional name (or that
+// of the scenario). It's simply an observation (with constraints on the type) 
+// but it is recognized as the observer of future observations when submitted.
+//
+// The geometry is the OBSERVED geometry. If the observer needs a geometry of
+// its own, this should be passed using "geometry: ...".
+//
+// Using `geometry: explorer` should link to a geometry communication channel
+define observer testobserver as {
+   space: { 
+   		shape: "EPSG:4326 POLYGON ((43.28872310842408 -13.295192955773103, 26.248928186549076 -13.295192955773103, 26.248928186549076 -0.7159235681670992, 43.28872310842408 -0.7159235681670992, 43.28872310842408 -13.295192955773103))"
+   	}
+   	time: {
+   		year: 2012
+   	}
+   semantics: valuation:Stakeholder society:HumanIndividual
+};
+
+/**
+ * This one should be resolved by the model below which has only one resolution for the regions
+ */
+project private model earth:Terrestrial earth:Region
+	observing
+		/**
+		 * Dependencies for substantials are always collective, but if `each` is explicitly given the
+		 * resolution will be individual. Otherwise k.LAB will resolve one dataflow that applies to the
+		 * collective observation and use it for all observations. This can be overridden by adding
+		 * @resolution(individual|collective) to the models for the collective.
+		 */
+	    earth:Freshwater earth:Region,
+		geography:Elevation in m,
+		geography:Slope in degree_angle;
+
+// you wish
+//model presence of (infrastructure:Building whose economics:MarketValue > 2000000.EUR@2015)
+//	where probability of earth:Flood > 0.7;
+//
+//model presence of (earth:Region) where geography:Elevation > 1;
+
+/**
+ * # Generated elevation surface
+ * 
+ * Fake elevation model that will produce credible DEMs using fractals, needing no data.
+ */
+project private model geography:Elevation in m
+   using klab.generators.geospatial.terrain();
+
+// fake freshwater regions
+project private model klab:random:objects:polygons 
+   as each earth:Freshwater earth:Region;
+
+/**
+ * # Generated slope surface
+ * 
+ * Fake slope model that will produce half-credible slope configurations using fractals and needing
+ * no data.
+ *
+ * @warning if an elevation surface is also generated, the slope profile will *not* correspond to it.
+ */
+project private model geography:Slope in degree_angle
+   using klab.generators.geospatial.terrain(roughness = 0.9, detail = 9, range = 0 to 80);
+   
+   
+project private model earth:PhysicalEnvironment of earth:Location
+	using klab.generators.random.classifier(root={{earth:PhysicalEnvironment}});  
+   
+/**
+ * # Generated aspect surface
+ * 
+ * Not included in region resolver, use to test dependencies. Makes a pointset of Poisson-distributed
+ * 0-1 values.
+ *
+ * @warning if an elevation surface is also generated, the slope profile will *not* correspond to it.
+ */
+project private model klab:random:data:poisson as geography:Aspect in degree_angle;
+
+project private model geography:StreamGradient in degree_angle
+   observing 
+   		geography:Elevation in m, 
+   		geography:Slope in degree_angle
+   set to [(elevation.max - elevation)/slope];

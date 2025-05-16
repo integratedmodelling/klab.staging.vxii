@@ -25,7 +25,7 @@ define observation testregion as {
 	}
 	time: {
 		// can have year, hour, day, month, ... all admit 'default'
-		year: 2012
+		year: 2014
 		// from: -- beginning
 		// until: -- if present, period locator represent the beginning. Can say 'next' as
 		//  a default
@@ -54,9 +54,13 @@ define observer testobserver as {
 
 project private model earth:Terrestrial earth:Region
 	observing
-	// CHECK we could use a convention of omitting the 'each' to mean "within the spatial context"
-	// or even use that as default if a dep of a subject resolver
-	   each earth:Freshwater earth:Region,
+		/**
+		 * Dependencies for substantials are always collective, but if `each` is explicitly given the
+		 * resolution will be individual. Otherwise k.LAB will resolve one dataflow that applies to the
+		 * collective observation and use it for all observations. This can be overridden by adding
+		 * @resolution(individual|collective) to the models for the collective.
+		 */
+	    each earth:Freshwater earth:Region,
 		geography:Elevation in m,
 		geography:Slope in degree_angle;
 
@@ -88,6 +92,9 @@ project private model klab:random:objects:polygons
  */
 project private model geography:Slope in degree_angle
    using klab.generators.geospatial.terrain(roughness = 0.9, detail = 9, range = 0 to 80);
+   
+project private model earth:PhysicalEnvironment of earth:Location
+	using klab.generators.random.classifier(root={{earth:PhysicalEnvironment}});  
    
 /**
  * # Generated aspect surface
