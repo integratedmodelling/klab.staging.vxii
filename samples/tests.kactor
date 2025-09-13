@@ -11,11 +11,11 @@ action puta:
 action test:
 
 	klab.new: 
-		def dt $,  // comma means: wait for fire of group before invoking next (removing the trigger)
+		def dt $  // comma means: wait for fire of group before invoking next (removing the trigger)
  	dt.observe('staging.vxii.basic.testobserver'): 
- 		def observer $,
+ 		def observer $
 	dt.observe('staging.vxii.basic.testregion' :observer observer): 
-		def region $,
+		def region $
 
 	assert [hasData(region.elevation)],
 		   [hasData(region.slope)]
@@ -27,8 +27,8 @@ action test:
 @sburro
 action vaca(a, b):
 
-	a = 1
-	b = dio
+	a <- 1
+	b <- dio
 
 	assert [b == 'dio'], [a == 1]
 		:fail "puto can" 
@@ -36,24 +36,26 @@ action vaca(a, b):
 
 	fail "" :diocan {{ earth:Region }}
 	
-	a = 2
+	a <- 2
 	dio(farf)
 	
-	a = 2
-	can: 
+	a <- 2
+	can: (
 		a -> d
 		n -> q(can)
+	)
 	(
-		z = 3
+		z <- 3
 		dio :bue
 	) :crosta true
 	
-	z = 1
-	porco(a=3, b=3): 
+	z <- 1
+	porco(a=3, b=3): (
 		# -> (can pbe)
 		a -> can
+	)
 	( 
 		porco
 	) :cul #dd
 	
-	a = 2
+	a <- 2
