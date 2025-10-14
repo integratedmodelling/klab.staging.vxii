@@ -2,12 +2,20 @@ testcase staging.vxii.basic
 
 @test
 action t1:
-	inspector.record(events={
-		a: dio
-		b: can
-	})
+	
+//	inspector.record(events={
+//		a: dio
+//		b: can
+//	})
+
 	context.new: dt -> (
 		dt.observe('staging.vxii.basic.testregion'):
 			dt.observe({{earth:StreamGradient}})
-	),
+	)
 	inspector.verify
+
+@test	
+action t2:
+	dio <- can
+	assert [dio = can]
+	
