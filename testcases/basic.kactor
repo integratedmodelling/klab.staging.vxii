@@ -18,4 +18,4 @@ action t1:
 action t2:
 	dio <- can
 	assert [dio = can]
-	
+	inspector.verify

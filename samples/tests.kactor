@@ -54,8 +54,38 @@ action test:
 
 	dt.close
 	
-@case(namespace='staging.vxii.basic')
-action staging1(a, b):
-	dt.new: dt.observe(
-		observable = {{elevation:Porcodio}}
+@sburro
+action vaca(a, b):
+
+	a <- 1
+	b <- dio
+
+	assert [b == 'dio'], [a == 1]
+		:fail "puto can" 
+		:success "aha"
+
+	fail "" :diocan {{ earth:Region }}
+	
+	a <- 2
+	dio(farf)
+	
+	a <- 2
+	can: (
+		a -> d
+		n -> q(can)
 	)
+	(
+		z <- 3
+		dio :bue
+	) :crosta true
+	
+	z <- 1
+	porco(a=3, b=3): (
+		# -> (can pbe)
+		a -> can
+	)
+	( 
+		porco
+	) :cul #dd
+	
+	a <- 2
