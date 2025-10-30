@@ -52,17 +52,19 @@ define observer testobserver as {
    semantics: valuation:Stakeholder society:HumanIndividual
 };
 
-project private model earth:Terrestrial earth:Region
-	observing
+// temp
+
+//project private model earth:Terrestrial earth:Region
+//	observing
 		/**
 		 * Dependencies for substantials are always collective, but if `each` is explicitly given the
 		 * resolution will be individual. Otherwise k.LAB will resolve one dataflow that applies to the
 		 * collective observation and use it for all observations. This can be overridden by adding
 		 * @resolution(individual|collective) to the models for the collective.
 		 */
-	    each earth:Freshwater earth:Region,
-		geography:Elevation in m,
-		geography:Slope in degree_angle;
+//	    each earth:Freshwater earth:Region,
+//		geography:Elevation in m,
+//		geography:Slope in degree_angle;
 
 // you wish
 //model presence of (infrastructure:Building whose economics:MarketValue > 2000000.EUR@2015)
