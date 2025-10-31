@@ -15,5 +15,5 @@ private model earth:Terrestrial earth:Region
 	observing
 		geography:Elevation in m;
 
-private model local:akif.ortak:im.data.global:im_data_global_geography.elevation_global_90m
+private model ferdinando.villa:staging:im.data.global:im_data_global_geography.elevation_global_90m
    as geography:Elevation in m;

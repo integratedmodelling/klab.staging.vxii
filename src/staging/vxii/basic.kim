@@ -50,6 +50,23 @@ define observation cotechino as {
 	}
 };
 
+// plain region without any resolver in this namespace
+define observation terradeimeloni as {
+	semantics: geography:Country earth:Region
+	space: {
+		shape: "EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))"
+		grid: 1.km
+	}
+	time: {
+		// can have year, hour, day, month, ... all admit 'default'
+		year: 2014
+		// from: -- beginning
+		// until: -- if present, period locator represent the beginning. Can say 'next' as
+		//  a default
+		step: 1.day
+	}
+};
+
 // yes - this can also be put in as config, built based on user and modified
 // scenarios may set the observer by giving them a conventional name (or that
 // of the scenario). It's simply an observation (with constraints on the type) 
