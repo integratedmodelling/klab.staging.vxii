@@ -11,6 +11,17 @@ define observation testregion as {
 	}
 };
 
+define observation testelevation as {
+	semantics: geography:Elevation in m
+	contextualization: {
+		adapter: wcs
+		service: "https://integratedmodelling.org/geoserver/ows"
+		identifier: "im-data-global-geography__elevation-global-90m"
+		version: "2.0.1"
+		band: 0
+	}
+};
+
 private model earth:Terrestrial earth:Region
 	observing
 		geography:Elevation in m;
