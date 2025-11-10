@@ -11,6 +11,13 @@ define observation testregion as {
 	}
 };
 
+/**
+ * Example of pre-contextualized observation. These should never come from definitions but are
+ * the way for a federated partner to submit observations that already have data storage associated.
+ * The digital twin will honor the contextualization specs as long as the adapter can be found and
+ * is embeddable. The resource ingestion process will create a "virtual" resource at the runtime
+ * end.
+ */
 define observation testelevation as {
 	semantics: {{ geography:Elevation in m}}
 	contextualization: {
