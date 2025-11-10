@@ -88,7 +88,7 @@ define observer testobserver as {
 
 // temp
 
-project private model earth:Terrestrial earth:Region
+private model earth:Terrestrial earth:Region
 	observing
 		/**
 		 * Dependencies for substantials are always collective, but if `each` is explicitly given the
