@@ -111,11 +111,11 @@ project private model earth:Terrestrial earth:Region
  * 
  * Fake elevation model that will produce credible DEMs using fractals, needing no data.
  */
-project private model geography:Elevation in m
+private model geography:Elevation in m
    using klab.generators.geospatial.terrain();
 
 // fake freshwater regions
-project private model klab:random:objects:polygons 
+private model klab:random:objects:polygons 
    as each earth:Freshwater earth:Region;
 
 /**
@@ -126,10 +126,10 @@ project private model klab:random:objects:polygons
  *
  * @warning if an elevation surface is also generated, the slope profile will *not* correspond to it.
  */
-project private model geography:Slope in degree_angle
+private model geography:Slope in degree_angle
    using klab.generators.geospatial.terrain(roughness = 0.9, detail = 9, range = 0 to 80);
    
-project private model earth:PhysicalEnvironment of earth:Location
+private model earth:PhysicalEnvironment of earth:Location
 	using klab.generators.random.classifier(root={{earth:PhysicalEnvironment}});  
    
 /**
@@ -140,9 +140,9 @@ project private model earth:PhysicalEnvironment of earth:Location
  *
  * @warning if an elevation surface is also generated, the slope profile will *not* correspond to it.
  */
-project private model klab:random:data:poisson as geography:Aspect in degree_angle;
+private model klab:random:data:poisson as geography:Aspect in degree_angle;
 
-project private model geography:StreamGradient in degree_angle
+private model geography:StreamGradient in degree_angle
    observing 
    		geography:Elevation in m, 
    		geography:Slope in degree_angle
