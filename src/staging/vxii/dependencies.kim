@@ -12,7 +12,7 @@ define observation testregion as {
 };
 
 define observation testelevation as {
-	semantics: geography:Elevation in m
+	semantics: {{ geography:Elevation in m}}
 	contextualization: {
 		adapter: wcs
 		service: "https://integratedmodelling.org/geoserver/ows"
