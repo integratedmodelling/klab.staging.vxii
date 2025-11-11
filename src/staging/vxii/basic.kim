@@ -88,7 +88,7 @@ define observer testobserver as {
 
 // temp
 
-private model earth:Terrestrial earth:Region
+ model earth:Terrestrial earth:Region
 	observing
 		/**
 		 * Dependencies for substantials are always collective, but if `each` is explicitly given the
@@ -111,11 +111,11 @@ private model earth:Terrestrial earth:Region
  * 
  * Fake elevation model that will produce credible DEMs using fractals, needing no data.
  */
-private model geography:Elevation in m
+ model geography:Elevation in m
    using klab.generators.geospatial.terrain();
 
 // fake freshwater regions
-private model klab:random:objects:polygons 
+ model klab:random:objects:polygons 
    as each earth:Freshwater earth:Region;
 
 /**
@@ -126,10 +126,10 @@ private model klab:random:objects:polygons
  *
  * @warning if an elevation surface is also generated, the slope profile will *not* correspond to it.
  */
-private model geography:Slope in degree_angle
+model geography:Slope in degree_angle
    using klab.generators.geospatial.terrain(roughness = 0.9, detail = 9, range = 0 to 80);
    
-private model earth:PhysicalEnvironment of earth:Location
+model earth:PhysicalEnvironment of earth:Location
 	using klab.generators.random.classifier(root={{earth:PhysicalEnvironment}});  
    
 /**
@@ -140,9 +140,9 @@ private model earth:PhysicalEnvironment of earth:Location
  *
  * @warning if an elevation surface is also generated, the slope profile will *not* correspond to it.
  */
-private model klab:random:data:poisson as geography:Aspect in degree_angle;
+ model klab:random:data:poisson as geography:Aspect in degree_angle;
 
-private model geography:StreamGradient in degree_angle
+ model geography:StreamGradient in degree_angle
    observing 
    		geography:Elevation in m, 
    		geography:Slope in degree_angle
