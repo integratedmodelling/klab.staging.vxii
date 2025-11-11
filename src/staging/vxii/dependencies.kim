@@ -29,6 +29,17 @@ define observation testelevation as {
 	}
 };
 
+
+define observation teststacband as {
+	semantics: {{ geography:Elevation in m}} // not really what this resource represents
+	contextualization: {
+		adapter: stac
+		collection: "https://earth-search.aws.element84.com/v1/collections/sentinel-2-pre-c1-l2a"
+		asset: "red"
+	}
+};
+
+
 //private model earth:Terrestrial earth:Region
 //	observing
 //		geography:Elevation in m;
