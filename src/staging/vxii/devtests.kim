@@ -1,1 +1,26 @@
 
+private namespace staging.vxii.devtests;
+
+define observation testregion as {
+	semantics: earth:Terrestrial earth:Region
+	space: {
+		shape: "EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))"
+		grid: 1.km
+	}
+	time: {
+		year: 2012
+	}
+};
+
+define observation teststacband as {
+	semantics: {{ geography:BathymetricDepth in m}} // not really what this resource represents
+	contextualization: {
+		adapter: stac
+		collection: "https://earth-search.aws.element84.com/v1/collections/sentinel-2-pre-c1-l2a"
+		asset: "red"
+	}
+};
+
+private model earth:Terrestrial earth:Region
+	observing
+		geography:BathymetricDepth in m;
