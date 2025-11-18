@@ -20,7 +20,3 @@ define observation teststacband as {
 		asset: "red"
 	}
 };
-
-private model earth:Terrestrial earth:Region
-	observing
-		geography:BathymetricDepth in m;
