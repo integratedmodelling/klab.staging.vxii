@@ -29,6 +29,16 @@ define observation testelevation as {
 	}
 };
 
+define observation largerregion as {
+	semantics: earth:Terrestrial earth:Region, 
+	space: {
+		shape: 'EPSG:4326 POLYGON ((77.11183309467745 28.558406270223728, 77.13158011521391 28.57649245320077, 77.1527376372173 28.55914959926227, 77.13355481726757 28.54056479885392, 77.11183309467745 28.558406270223728))',
+		grid: 1.km
+	},
+	time: {
+		year: 2014
+	}
+};
 
 //private model earth:Terrestrial earth:Region
 //	observing
