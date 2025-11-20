@@ -1,5 +1,5 @@
 
-private namespace staging.vxii.devtests;
+namespace staging.vxii.devtests;
 
 define observation testregion as {
 	semantics: earth:Terrestrial earth:Region
@@ -20,3 +20,7 @@ define observation teststacband as {
 		asset: "red"
 	}
 };
+
+model geography:Elevation in m using klab.generators.geospatial.terrain();
+model klab:random:data:poisson as geography:Aspect in degree_angle;
+model geography:Slope in degree_angle using klab.generators.geospatial.terrain(roughness = 0.9, detail = 9, range = 0 to 80);
