@@ -12,12 +12,21 @@ define observation testregion as {
 	}
 };
 
-define observation teststacband as {
+define observation teststacsentinel as {
 	semantics: {{ geography:BathymetricDepth in m}} // not really what this resource represents
 	contextualization: {
 		adapter: stac
 		collection: "https://earth-search.aws.element84.com/v1/collections/sentinel-2-pre-c1-l2a"
 		asset: "red"
+	}
+};
+
+define observation teststacio as {
+	semantics: {{ geography:BathymetricDepth in m}} // not really what this resource represents
+	contextualization: {
+		adapter: stac
+		collection: "https://planetarycomputer.microsoft.com/api/stac/v1/collections/io-lulc-annual-v02"
+		asset: "data"
 	}
 };
 
