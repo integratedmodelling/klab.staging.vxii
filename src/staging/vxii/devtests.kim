@@ -8,7 +8,7 @@ define observation testregion as {
 		grid: 1.km
 	}
 	time: {
-		year: 2012
+		year: 2018
 	}
 };
 
