@@ -12,6 +12,18 @@ define observation testregion as {
 	}
 };
 
+define observation largerregion as {
+	semantics: earth:Terrestrial earth:Region, 
+	space: {
+		shape: "EPSG:4326 POLYGON ((0.2606457856472466 41.37661429297714, -4.957860073727753 41.37661429297714, -4.957860073727753 43.96100428035865, 0.2606457856472466 43.96100428035865, 0.2606457856472466 41.37661429297714))",
+		grid: 1.km
+	},
+	time: {
+		year: 2020
+	}
+};
+
+
 define observation teststacsentinel as {
 	semantics: {{ geography:BathymetricDepth in m}} // not really what this resource represents
 	contextualization: {
