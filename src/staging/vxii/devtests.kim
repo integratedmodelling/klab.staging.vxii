@@ -4,7 +4,7 @@ namespace staging.vxii.devtests;
 define observation testregion as {
 	semantics: earth:Terrestrial earth:Region
 	space: {
-		shape: "EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))"
+		shape: "EPSG:4326 POLYGON ((-2.936697 43.261706, -2.933178 43.261706, -2.933178 43.264409, -2.936697 43.264409, -2.936697 43.261706))"
 		grid: 1.km
 	}
 	time: {
