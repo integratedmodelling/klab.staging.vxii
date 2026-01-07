@@ -36,11 +36,11 @@ dataflow petardo.xxhw.initialization
  */
 define geometry g1 as { }
 
-define observation o1 as { 
-	semantics: {{data:Normalized dio:Can}}
-	name: "dio can"
-	geometry: g1
-}
+//define observation o1 as { 
+//	semantics: {{data:Normalized dio:Can}}
+//	name: "dio can"
+//	geometry: g1
+//}
 
 /*
  * Here we use "resolve <string ID>" (with each ID defined above as an observation) for externally 

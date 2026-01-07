@@ -1,4 +1,3 @@
-
 namespace staging.vxii.devtests;
 
 define observation testregion as {
@@ -22,7 +21,6 @@ define observation largerregion as {
 		year: 2020
 	}
 };
-
 
 define observation teststacsentinel as {
 	semantics: {{ geography:BathymetricDepth in m}} // not really what this resource represents
