@@ -36,7 +36,7 @@ dataflow petardo.xxhw.initialization
  */
 define geometry g1 as { }
 
-define observation o1 as { 
+define artiface o1 as { 
 	semantics: {{data:Normalized dio:Can}}
 	name: "dio can"
 	geometry: g1
