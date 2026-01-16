@@ -19,7 +19,7 @@ define observation testregion as {
  * end.
  */
 define observation testelevation as {
-	semantics: {{ geography:Elevation in m}}
+	semantics: {{ geography:Elevation in m }}
 	contextualization: {
 		adapter: wcs
 		serviceUrl: "https://integratedmodelling.org/geoserver/ows"
@@ -29,7 +29,7 @@ define observation testelevation as {
 	}
 };
 
-define observation largerregion as {
+define observation larger_region as {
 	semantics: earth:Terrestrial earth:Region, 
 	space: {
 		shape: "EPSG:4326 POLYGON ((0.2606457856472466 41.37661429297714, -4.957860073727753 41.37661429297714, -4.957860073727753 43.96100428035865, 0.2606457856472466 43.96100428035865, 0.2606457856472466 41.37661429297714))",
@@ -40,9 +40,9 @@ define observation largerregion as {
 	}
 };
 
-//private model earth:Terrestrial earth:Region
-//	observing
-//		geography:Elevation in m;
-//
-//private model ferdinando.villa:staging:im.data.global:im_data_global_geography.elevation_global_90m
+private model earth:Terrestrial earth:Region
+	observing
+		geography:Elevation in m;
+
+// private model ferdinando.villa:staging:im.data.global:im_data_global_geography.elevation_global_90m
 //   as geography:Elevation in m;

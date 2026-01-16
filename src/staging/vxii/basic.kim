@@ -1,4 +1,5 @@
-namespace staging.vxii.basic;
+namespace staging.vxii.basic
+	version 1.0;
 
 /*
  * TODO
@@ -32,6 +33,7 @@ define observation testregion as {
 		step: 1.day
 	}
 };
+
 
 // identical, but it's another observation because the URN is different.
 define observation cotechino as {
@@ -98,7 +100,6 @@ define observer testobserver as {
 };
 
 // temp
-
 private model earth:Terrestrial earth:Region
 	observing
 		/**
@@ -112,10 +113,10 @@ private model earth:Terrestrial earth:Region
 		geography:Slope in degree_angle;
 
 // you wish
-//model presence of (infrastructure:Building whose economics:MarketValue > 2000000.EUR@2015)
-//	where probability of earth:Flood > 0.7;
+// model presence of (infrastructure:Building whose economics:MarketValue > 2000000.EUR@2015)
+// 	where probability of earth:Flood > 0.7;
 //
-//model presence of (earth:Region) where geography:Elevation > 1;
+// model presence of (earth:Region) where geography:Elevation > 1;
 
 /**
  * # Generated elevation surface
