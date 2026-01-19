@@ -11,6 +11,17 @@ define observation testregion as {
 	}
 };
 
+define observation tierralacapital as {
+	semantics: earth:Terrestrial earth:Region
+	space: {
+		shape: "EPSG:4326 POLYGON ((4.785959977018684 52.36327282792627, 4.888466900960927 52.39865946645364, 4.919564507100708 52.37241513986268, 4.8996006118010955 52.3367728809811, 4.785959977018684 52.36327282792627))"
+		grid: 1.km
+	}
+	time: {
+		year: 2012
+	}
+};
+
 /**
  * Example of pre-contextualized observation. These should never come from definitions but are
  * the way for a federated partner to submit observations that already have data storage associated.
