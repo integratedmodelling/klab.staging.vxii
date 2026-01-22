@@ -4,7 +4,7 @@ define observation testregion as {
 	semantics: earth:Terrestrial earth:Region
 	space: {
 		shape: "EPSG:4326 POLYGON ((-2.936697 43.261706, -2.933178 43.261706, -2.933178 43.264409, -2.936697 43.264409, -2.936697 43.261706))"
-		grid: 1.km
+		grid: 10.m
 	}
 	time: {
 		year: 2018
@@ -37,9 +37,13 @@ define observation teststacio as {
 		adapter: stac
 		collection: "https://planetarycomputer.microsoft.com/api/stac/v1/collections/io-lulc-annual-v02"
 		asset: "data"
+		persist: true
 	}
 };
 
-model geography:Elevation in m using klab.generators.geospatial.terrain();
+model ferdinando.villa:staging:im.data.global:jrc.global_human_settlement_population_100m_2021 as 
+	geography:Elevation in m; 
+
+// model geography:Elevation in m using klab.generators.geospatial.terrain();
 model klab:random:data:poisson as geography:Aspect in degree_angle;
 model geography:Slope in degree_angle using klab.generators.geospatial.terrain(roughness = 0.9, detail = 9, range = 0 to 80);
