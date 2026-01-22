@@ -31,6 +31,7 @@ define observation teststacsentinel as {
 	}
 };
 
+// This one has persist: true, which creates a temporary resource at the resolver's 
 define observation teststacio as {
 	semantics: {{ geography:BathymetricDepth in m}} // not really what this resource represents
 	contextualization: {
