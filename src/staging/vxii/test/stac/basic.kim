@@ -1,0 +1,23 @@
+private namespace staging.vxii.test.stac.basic
+   version 1.0;
+
+define observation testregion as {
+	semantics: earth:Terrestrial earth:Region
+	space: {
+		shape: "EPSG:4326 POLYGON ((21.910616123751442 38.79364335500986, 21.26838806193504 38.79364335500986, 21.26838806193504 39.03962334822924, 21.910616123751442 39.03962334822924, 21.910616123751442 38.79364335500986))"
+		grid: 50.m
+	}
+	time: {
+		start: 2024
+      end: 2025
+      step: 1.year
+	}
+};
+
+// This works in 0.11 with the above context (maybe - no items found)
+model ferdinando.villa:staging:im.data.global:jrc_global_surface_water_transition
+	as geography:Slope in degree_angle;
+
+// This should work for real (it's LULC, so should be classified)
+model ferdinando.villa:staging:im.data.global:impact.observatory.annual.landuse
+	as geography:Slope in degree_angle;
