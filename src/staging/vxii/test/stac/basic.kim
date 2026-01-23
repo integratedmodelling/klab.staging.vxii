@@ -14,7 +14,45 @@ define observation testregion as {
 	}
 };
 
-// This works in 0.11 with the above context (maybe - no items found)
+// This one has persist: true, which creates a temporary resource at the resolver's 
+define observation pc_io_lulc_stac_session as {
+	semantics: {{ geography:BathymetricDepth in m}} // not really what this resource represents
+	contextualization: {
+		adapter: stac
+		collection: "https://planetarycomputer.microsoft.com/api/stac/v1/collections/io-lulc-annual-v02"
+		asset: "data"
+		persist: true
+	}
+};
+
+// This one has persistence and resource configuration, which contributes to a resource
+define observation pc_io_lulc_stac_resource as {
+	semantics: {{ geography:BathymetricDepth in m}} // not really what this resource represents
+	contextualization: {
+		adapter: stac
+		collection: "https://planetarycomputer.microsoft.com/api/stac/v1/collections/io-lulc-annual-v02"
+		asset: "data"
+		persist: true // false will deactivate the resource configuration below
+		resource: {
+			service: im.resources    // optional (use service that has it or first service 
+			                         // with upload rights) unless merge is specified
+			catalog: vito.ml         // mandatory
+			namespace: lulc.global   // mandatory - check if namespace can be used
+			id: "io-lulc-annual-v02" // optional (use resource ID from adapter)
+			mode: update // can be: 
+					     //     override (delete any previously existing resource);
+					     //     update   (post next version if existing, keeping history) 
+			             //     merge    (merge content with existing if adapter allows) 
+						 //     ignore   (skip if already existing)
+		}
+	}
+};
+
+
+// FIXME - the name is the same and there is no URL correction or error checking
+// Should require explicit name rather than use numbering
+
+// This works in 0.11 with the above context (maybe)
 model ferdinando.villa:staging:im.data.global:jrc_global_surface_water_transition
 	as geography:Slope in degree_angle;
 
