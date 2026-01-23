@@ -26,6 +26,8 @@ define observation pc_io_lulc_stac_session as {
 };
 
 // This one has persistence and resource configuration, which contributes to a resource
+// Submitting user must have resource create/update permissions + anu permissions needed 
+// for the specific resource in case of merging and updating.
 define observation pc_io_lulc_stac_resource as {
 	semantics: {{ geography:BathymetricDepth in m}} // not really what this resource represents
 	contextualization: {
@@ -36,7 +38,8 @@ define observation pc_io_lulc_stac_resource as {
 		resource: {
 			service: im.resources    // optional (use service that has it or first service 
 			                         // with upload rights) unless merge is specified
-			catalog: vito.ml         // mandatory
+			catalog: vito.ml         // mandatory. If resource does not exist, only 'staging' is
+			                         // accepted.
 			namespace: lulc.global   // mandatory - check if namespace can be used
 			id: "io-lulc-annual-v02" // optional (use resource ID from adapter)
 			mode: update // can be: 
