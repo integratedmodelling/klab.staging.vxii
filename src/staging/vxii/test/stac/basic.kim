@@ -25,6 +25,7 @@ define observation pc_io_lulc_stac_session as {
 	}
 };
 
+
 // This one has persistence and resource configuration, which contributes to a resource
 // Submitting user must have resource create/update permissions + anu permissions needed 
 // for the specific resource in case of merging and updating.
@@ -40,9 +41,9 @@ define observation pc_io_lulc_stac_resource as {
 			                         // with upload rights) unless merge is specified
 			catalog: vito.ml         // mandatory. If resource does not exist, only 'staging' is
 			                         // accepted.
-			namespace: lulc.global   // mandatory - check if namespace can be used
+			namespace: lulc.global   // mandatory
 			id: "io-lulc-annual-v02" // optional (use resource ID from adapter)
-			mode: update // can be: 
+			mode: update // optional (default=override). Can be: 
 					     //     override (delete any previously existing resource);
 					     //     update   (post next version if existing, keeping history) 
 			             //     merge    (merge content with existing if adapter allows) 
