@@ -1,7 +1,7 @@
 private namespace staging.vxii.test.stac.basic
    version 1.0;
 
-define observation testregion as {
+define observation somewhere_in_greece_at_50m as {
 	semantics: earth:Terrestrial earth:Region
 	space: {
 		shape: "EPSG:4326 POLYGON ((21.910616123751442 38.79364335500986, 21.26838806193504 38.79364335500986, 21.26838806193504 39.03962334822924, 21.910616123751442 39.03962334822924, 21.910616123751442 38.79364335500986))"
@@ -37,17 +37,17 @@ define observation pc_io_lulc_stac_resource as {
 		asset: "data"
 		persist: true // false will deactivate the resource configuration below
 		resource: {
-			service: im.resources    // optional (use service that has it or first service 
+			service: ferdinando.villa    // optional (use service that has it or first service 
 			                         // with upload rights) unless merge is specified
 			catalog: vito.ml         // mandatory. If resource does not exist, only 'staging' is
 			                         // accepted.
 			namespace: lulc.global   // mandatory
 			id: "io-lulc-annual-v02" // optional (use resource ID from adapter)
 			mode: update // optional (default=override). Can be: 
-					     //     override (delete any previously existing resource);
+					     //     replace  (delete any previously existing resource);
 					     //     update   (post next version if existing, keeping history) 
 			             //     merge    (merge content with existing if adapter allows) 
-						 //     ignore   (skip if already existing)
+						 //     add      (skip if already existing)
 		}
 	}
 };
