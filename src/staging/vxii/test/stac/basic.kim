@@ -37,7 +37,7 @@ define observation pc_io_lulc_stac_resource as {
 		asset: "data"
 		persist: true // false will deactivate the resource configuration below
 		resource: {
-			service: im.resources-main    // optional (use service that has it or first service 
+			service: ferdinando.villa    // optional (use service that has it or first service 
 			                         // with upload rights) unless merge is specified
 			catalog: vito.ml         // mandatory. If resource does not exist, only 'staging' is
 			                         // accepted.
