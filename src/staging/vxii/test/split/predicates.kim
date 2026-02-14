@@ -12,6 +12,7 @@ define resource templulc as {
 		band: 0
 };
 
+@test
 define observation salamella as {
 	semantics: earth:Terrestrial earth:Region
 	space: {
