@@ -1,0 +1,40 @@
+private namespace staging.vxii.test.split.predicates
+   version 1.0;
+
+// Defines a temporary, ephemeral resource named 
+//    `temporary:resources:staging.vxii.test.split.predicates:templulc`
+// Resource is only visible to models within this namespace
+define resource templulc as {
+		adapter: wcs
+		serviceUrl: "https://integratedmodelling.org/geoserver/ows"
+		wcsIdentifier: "im-data-global-geography__elevation-global-90m"
+		wcsVersion: "2.0.1"
+		band: 0
+};
+
+define observation salamella as {
+	semantics: earth:Terrestrial earth:Region
+	space: {
+		shape: "EPSG:4326 POLYGON ((21.910616123751442 38.79364335500986, 21.26838806193504 38.79364335500986, 21.26838806193504 39.03962334822924, 21.910616123751442 39.03962334822924, 21.910616123751442 38.79364335500986))"
+		grid: 50.m
+	}
+	time: {
+		start: 2024
+      end: 2025
+      step: 1.year
+	}
+};
+
+// our elevation model. Using a private resource, so private by definition.
+model temporary:resources:staging.vxii.test.split.predicates:templulc 
+   as geography:Elevation in m;
+
+// normalizing transformer. This requires the computation for the transformer, probably from a
+//   statistical plug-in.
+// TODO could find ways of adding Java or easier code files to projects for private contextualizers
+model data:Normalized of imod:Quality
+   using klab.data.normalize();
+
+// This will trigger resolution when the salamella is observed
+model earth:Terrestrial earth:Region
+   observing data:Normalized geography:Elevation;
