@@ -3,7 +3,7 @@ private namespace staging.vxii.test.split.predicates
 
 // Defines a temporary, ephemeral resource named 
 //    `temporary:resources:staging.vxii.test.split.predicates:templulc`
-// Resource is only visible to models within this namespace
+// Resource is only available locally and visible to models on the same service
 define resource templulc as {
 		adapter: wcs
 		serviceUrl: "https://integratedmodelling.org/geoserver/ows"
