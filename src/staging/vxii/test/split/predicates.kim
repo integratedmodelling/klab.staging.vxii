@@ -2,7 +2,7 @@ private namespace staging.vxii.test.split.predicates
    version 1.0;
 
 // Defines a temporary, ephemeral resource named 
-//    `temporary:resources:staging.vxii.test.split.predicates:templulc`
+//    `inline:resources:staging.vxii.test.split.predicates:templulc`
 // Resource is only available locally and visible to models on the same service
 define resource templulc as {
 	adapter: wcs
@@ -27,7 +27,7 @@ define observation salamella as {
 };
 
 // our elevation model. Using a private resource, so private by definition.
-model temporary:resources:staging.vxii.test.split.predicates:templulc 
+model inline:resources:staging.vxii.test.split.predicates:templulc 
    as geography:Elevation in m;
 
 // normalizing transformer. This requires the computation for the transformer, probably from a
