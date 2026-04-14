@@ -17,7 +17,11 @@ namespace staging.vxii.basic
  * children, e.g. 2 cities + one travel connection between them.
  * 
  * Observing this should also set it as the context observation if none is active.
+ *
+ * TODO test w/conditions, then add StreamGradient, test that the AFFECTS relationships are
+ * in place
  */
+ @test
 define observation testregion as {
 	semantics: earth:Terrestrial earth:Region
 	space: {
