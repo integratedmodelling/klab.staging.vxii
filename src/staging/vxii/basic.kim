@@ -158,6 +158,9 @@ private model earth:PhysicalEnvironment of each earth:Location
  */
 private model klab:random:data:poisson as geography:Aspect in degree_angle;
 
+/**
+ * Test for computed expressions. Drop after `cotechino`.
+ */
 private model geography:StreamGradient in degree_angle
    observing 
    		geography:Elevation in m, 

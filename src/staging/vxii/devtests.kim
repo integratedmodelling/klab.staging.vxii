@@ -1,4 +1,4 @@
-namespace staging.vxii.devtests;
+private namespace staging.vxii.devtests;
 
 define observation testregion as {
 	semantics: earth:Terrestrial earth:Region
