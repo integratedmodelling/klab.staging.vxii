@@ -1,4 +1,4 @@
-namespace staging.vxii.test.lut.basic
+private namespace staging.vxii.test.lut.basic
    version 1.0;
 
 define RECREATION_OPPORTUNITY_TABLE as
