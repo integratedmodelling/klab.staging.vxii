@@ -21,7 +21,7 @@ namespace staging.vxii.basic
  * TODO test w/conditions, then add StreamGradient, test that the AFFECTS relationships are
  * in place
  */
- @test
+@test
 define observation testregion as {
 	semantics: earth:Terrestrial earth:Region
 	space: {
@@ -159,6 +159,8 @@ private model klab:random:data:poisson as geography:Aspect in degree_angle;
 
 /**
  * Test for computed expressions. Drop after `cotechino`.
+ *
+ * @test affected by both slope and elevation in both absent and already present cases
  */
 private model geography:StreamGradient in degree_angle
    observing 
