@@ -52,7 +52,6 @@ define observation pc_io_lulc_stac_resource as {
 	}
 };
 
-
 // FIXME - the name is the same and there is no URL correction or error checking
 // Should require explicit name rather than use numbering
 
