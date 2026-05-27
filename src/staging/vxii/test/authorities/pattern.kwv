@@ -2,3 +2,9 @@ ontology vxii.authorities.pattern
 	version 1.0
 	in domain imod:Knowledge;
 	
+identity Forest 
+	equals PATTERN.EARTHCOVER:[
+		physical:VerticalCover(
+   			+++physical:HorizontalCover(GBIF:32223 ecology:Forest, earth:Stream)
+   		)
+   	];
