@@ -12,7 +12,12 @@ define resource templulc as {
 		band: 0
 };
 
-@test
+// TODO set up assertions as data objects
+@test(assert=({
+
+}, {
+
+}))
 define observation salamella as {
 	semantics: earth:Terrestrial earth:Region
 	space: {
