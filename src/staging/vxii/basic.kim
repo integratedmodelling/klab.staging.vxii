@@ -11,7 +11,7 @@ namespace staging.vxii.basic
  * resolution is a special SCENARIO that should always be available.
  */
 
-/**
+/*
  * It's possible to not add semantics to implement
  * empty contexts. May have extents or not (observation will use the observer). May have
  * children, e.g. 2 cities + one travel connection between them.
@@ -20,6 +20,11 @@ namespace staging.vxii.basic
  *
  * TODO test w/conditions, then add StreamGradient, test that the AFFECTS relationships are
  * in place
+ *
+ * If multiple tests are in one namespace, they should be executed one after the other without
+ * resetting the DT. The @test annotation may apply to observations, observers and models. A series
+ * of @test annotations on the same observation may mention observable = {} to enable resolution of
+ * a concept after the observation.
  */
 @test
 define observation testregion as {
