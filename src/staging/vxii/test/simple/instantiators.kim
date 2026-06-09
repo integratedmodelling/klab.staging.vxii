@@ -1,0 +1,28 @@
+private namespace staging.vxii.test.simple.instantiators
+   version 1.0;
+
+@test(dio = {
+	dio: can
+	put: boia
+})
+define observation testregion as {
+	semantics: earth:Terrestrial earth:Region
+	space: {
+		shape: "EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))"
+		grid: 1.km
+	}
+	time: {
+		// can have year, hour, day, month, ... all admit 'default'
+		year: 2014
+		// from: -- beginning
+		// until: -- if present, period locator represent the beginning. Can say 'next' as
+		//  a default
+		step: 1.day
+	}
+};
+
+model klab:random:objects:polygons 
+   as each earth:Freshwater earth:Region;
+
+model earth:Terrestrial earth:Region
+	observing each earth:Freshwater earth:Region;
