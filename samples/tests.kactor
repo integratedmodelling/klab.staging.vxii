@@ -68,12 +68,11 @@ action test:
 	)
 
 	// this waits for the whole group, which is executed in parallel
-	then assert [hasData(region.elevation)],
-		   [hasData(region.slope)]
-		:success "Godi, vacca"
-		:fail "Dio can"
-
-	for 1 to 10 sborro
+	then assert 
+		[hasData(region.elevation)],
+		[hasData(region.slope)]
+			:success "Godi, vacca"
+			:fail "Dio can"
 
 	dt.close
 	
