@@ -59,12 +59,14 @@ action test:
 	 * Sequences are only admitted for suppliers, which are chained to
 	 * each other. Otherwise 'then' is ignored (should be flagged as warning). 
 	 */
- 	(dt.submit('staging.vxii.basic.testobserver'): 
- 		def observer $
-	then dt.submit('staging.vxii.basic.testregion' :observer observer): 
-		def region $)
+ 	(
+ 		dt.submit('staging.vxii.basic.testobserver'): 
+ 			def observer $
+	 	dt.submit('staging.vxii.basic.testregion' :observer observer): 
+			def region $
+	)
 
-	// this waits for the whole group
+	// this waits for the whole group, which is executed in parallel
 	then assert [hasData(region.elevation)],
 		   [hasData(region.slope)]
 		:success "Godi, vacca"
