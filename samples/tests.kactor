@@ -50,24 +50,29 @@ action groupingroup:
 	)
 
 @test
-action test:
+action seqtest:
 
-	dt       <- context.new(persistence=PERSISTENT)
-	france   <- dt.submit('staging.vxii.basic.regions.france', year=2011)
+
+	// create a digital twin with default options
+	dt       <- context.new
+	
+	// a main observation and an observer. Submit used functionally here, meaning
+	// that the compiled code will call get() on the resulting future and block
 	observer <- dt.submit('staging.vxii.basic.observers.caprone')
+	france   <- dt.submit('staging.vxii.basic.regions.france', year=2011)
 		
 	/*
-	 * Sequences are only admitted for suppliers, which are chained to
-	 * each other. Otherwise 'then' is ignored (should be flagged as warning). 
+	 * submit used as a supplier, so in the group both submissions are sent 
+	 * concurrently (although the DT will execute sequentially)
 	 */
-	then (
+	(
  		dt.submit('staging.vxii.basic.regionone'): 
  			def r1 $
 	 	dt.submit('staging.vxii.basic.regiontwo' :observer observer): 
 			def r2 $
 	)
 
-	// this waits for the whole group, which is executed in parallel
+	// 'then' waits for the whole group above to finish
 	then assert 
 		[hasData(region.elevation)],
 		[hasData(region.slope)]
