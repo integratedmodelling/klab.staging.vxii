@@ -53,13 +53,13 @@ action groupingroup:
 action test:
 
 	dt     <- context.new(persistence=PERSISTENT)
-	france <- dt.observe('staging.vxii.basic.regions.france', year=2011)
+	france <- dt.submit('staging.vxii.basic.regions.france', year=2011)
 		
 	/*
 	 * Sequences are only admitted for suppliers, which are chained to
 	 * each other. Otherwise 'then' is ignored (should be flagged as warning). 
 	 */
- 	(
+	then (
  		dt.submit('staging.vxii.basic.testobserver'): 
  			def observer $
 	 	dt.submit('staging.vxii.basic.testregion' :observer observer): 
