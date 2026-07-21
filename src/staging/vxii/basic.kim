@@ -111,6 +111,7 @@ define observer testobserver as {
 private model earth:Terrestrial earth:Region
 	observing
 		/**
+		 * TODO
 		 * Dependencies for substantials are always collective, but if `each` is explicitly given the
 		 * resolution will be individual. Otherwise k.LAB will resolve one dataflow that applies to the
 		 * collective observation and use it for all observations. This can be overridden by adding
