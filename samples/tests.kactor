@@ -30,12 +30,13 @@ action functor:
 	console.print("Dio porco ho bestemmiato, dio can")
 	return "dio can"
 
-// an emitter (fires periodically, no return, continues firing)
+// an emitter (fires periodically, does not return, continues firing)
 action emitter:
 	timer.random(step=10.s): time -> fire "dio puto"
 
-// reactor behavior: return is in the listener, exits action and removes listener when matched
-
+// supplier behavior: return is in the listener, exits action and removes listener when matched
+action supplier:
+	timer.in(10.m): time -> return time
 
 // group in group
 action groupingroup:
