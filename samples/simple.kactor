@@ -2,8 +2,8 @@ behavior test.main
     "Description"
 	version 1.0
 	using
-		core.timer as timer, // enable core.* and maybe make it default?
-		core.console as console
+		core.util.timer   as timer, // enable core.* and maybe make it default?
+		core.util.console as console
 
 // simplest verb call with double event binding, one internal, one external
 action main:
@@ -12,3 +12,15 @@ action main:
 // an emitter (fires periodically, no return, continues firing)
 action emitter:
     timer.random(step=10.s): time -> fire "dio pollo"
+    switch [diocan] as poer.ac (
+    	%^s% as dio -> console.print("du")
+    	diocan -> ( 
+    		console.say("Scureggia")
+    		yield 212
+    	)
+    )
+    
+@handle(class=can) // FIXME needs to admit constants. Can use global variables as payload
+action tiraostia:
+	// supply the current value of hostia as a response
+	return string.format("HOSTIA: %s", hostia)

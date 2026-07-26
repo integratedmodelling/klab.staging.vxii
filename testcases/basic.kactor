@@ -1,4 +1,5 @@
 testcase staging.vxii.basic
+	version 1.0
 
 @test
 action t1:
@@ -9,8 +10,8 @@ action t1:
 //	})
 
 	context.new: dt -> (
-		dt.observe('staging.vxii.basic.testregion'):
-			dt.observe({{earth:StreamGradient}})
+		dt.observe('staging.vxii.basic.testregion')
+		then dt.observe({{earth:StreamGradient}})
 	)
 	inspector.verify
 

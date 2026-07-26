@@ -74,8 +74,8 @@ action seqtest:
 
 	// 'then' waits for the whole group above to finish
 	then assert 
-		[hasData(region.elevation)],
-		[hasData(region.slope)]
+		[hasData(r1)],
+		[hasData(r2)]
 			:success "Godi, vacca"
 			:fail "Dio can"
 
@@ -110,7 +110,7 @@ action vaca(a, b):
 	porco(a=3, b=3): (
 		# -> (can pbe)
 		a -> can
-	)
+		)
 	( 
 		porco
 	) :cul hostia #dd
