@@ -1,0 +1,14 @@
+behavior vxii.examples.timer
+    "Demonstrate temporal event emitters"
+    version 1.0
+    using 
+        core.console as console,
+        core.timer as timer
+
+action main:
+    timer.in(15.s):
+        time -> console.format("# One-off event at %s\n", time)
+    timer.random(10.s):
+        time -> console.format("> Random event at %s\n", time)
+    timer.tick(5.s):
+        time -> console.format("* Regular tick at %s\n", time)
