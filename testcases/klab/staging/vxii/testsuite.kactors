@@ -1,0 +1,72 @@
+// TODO a test case named <projectname>.testsuite is the default test case for a project
+testcase klab.staging.vxii.testsuite
+    "Exercises the self-contained observations in the klab.staging.vxii project"
+    version 1.0
+    using 
+        core.console as console,
+        core.context as context,
+		core.inspector as inspector
+    
+action init:
+	def ruaha {
+        namespace: "test.tanzania"
+		name: "ruaha" 
+	    semantics: {{ earth:Terrestrial earth:Region }}
+	    space: {
+		    shape: "EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))"
+		    grid: 1.km
+	    }
+	    time: {
+		    year: 2014
+		    step: 1.day
+	    }
+    }
+
+@test(name="Check that substantial identity is preserved and redefinitions are disallowed")
+action check_substantial_identity:
+    ctx <- context.new 
+    mainobs <- ctx.submit(ruaha)
+	console.format("Observation is %s\n", mainobs)
+	assert [mainobs != null]
+	mid <- mainobs.id
+	resubmitted <- ctx.submit(ruaha)
+	assert [resubmitted != null]
+	rid <- resubmitted.id
+	assert [mid == rid]
+		:fail "A resubmitted substantial observation is recreated instead of returned"
+		:success "The resubmitted observation URN is correctly used to key existing observations"
+
+@test(name="Basic test of a quality observation sequence", description="")
+action resolve_quality:
+
+    ctx <- context.new 
+    mainobs <- ctx.submit(ruaha)
+	elevation <- 
+		ctx.submit({{geography:Elevation in m}} 
+            :within mainobs 
+            :namespace "staging.vxii.basic"
+            :project "klab.staging.vxii")
+	assert 
+		inspector.viable(elevation !nodata) 
+			:success "Andata bene anche stavolta"
+			:fail    "AAAAH, fallito"
+
+@test(name="Basic test of namespace multiple resolution", description="")
+action ns_resolution:
+
+    ctx <- context.new
+    mainobs <- ctx.submit(ruaha
+		:namespace "staging.vxii.basic"
+        :project "klab.staging.vxii")
+
+	// TODO extract elevation and slope; check all viable
+
+	// elevation <- 
+	// 	ctx.submit({{geography:Elevation in m}} 
+    //         :within mainobs 
+    //         )
+
+	// assert 
+	// 	inspector.viable(elevation !nodata) 
+	// 		:success "Andata bene anche stavolta"
+	// 		:fail    "AAAAH, fallito"
