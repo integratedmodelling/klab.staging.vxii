@@ -24,9 +24,9 @@ action init:
 
 @test(name="Check that substantial identity is preserved and redefinitions are disallowed")
 action check_substantial_identity:
+	console.println("Starting identity test")
     ctx <- context.new 
     mainobs <- ctx.submit(ruaha)
-	console.format("Observation is %s\n", mainobs)
 	assert [mainobs != null]
 	mid <- mainobs.id
 	resubmitted <- ctx.submit(ruaha)
