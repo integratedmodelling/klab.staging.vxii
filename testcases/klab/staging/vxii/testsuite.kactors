@@ -22,7 +22,8 @@ action init:
 	    }
     }
 
-@test(name="Check that substantial identity is preserved and redefinitions are disallowed")
+@test(name="Substantial identity preservation", 
+	description="Check that substantial identity is preserved upon resubmission and redefinitions are disallowed")
 action check_substantial_identity:
 	console.println("Starting identity test")
     ctx <- context.new 
@@ -36,7 +37,8 @@ action check_substantial_identity:
 		:fail "A resubmitted substantial observation is recreated instead of returned"
 		:success "The resubmitted observation URN is correctly used to key existing observations"
 
-@test(name="Basic test of a quality observation sequence", description="")
+@test(name="Direct quality observation", 
+	description="Test successive submission of a raw subject and a quality in its context")
 action resolve_quality:
 
     ctx <- context.new 
@@ -51,7 +53,8 @@ action resolve_quality:
 			:success "Andata bene anche stavolta"
 			:fail    "AAAAH, fallito"
 
-@test(name="Basic test of namespace multiple resolution", description="")
+@test(name="Implicit quality resolution", 
+	description="Test raw subject submission in a namespace that explains by observing two additional qualities")
 action ns_resolution:
 
     ctx <- context.new
