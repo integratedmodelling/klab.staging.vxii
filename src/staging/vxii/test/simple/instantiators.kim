@@ -1,10 +1,7 @@
 private namespace staging.vxii.test.simple.instantiators
    version 1.0;
 
-@test(dio = {
-	dio: can
-	put: boia
-})
+@test
 define observation testregion as {
 	semantics: earth:Terrestrial earth:Region
 	space: {
