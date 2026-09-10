@@ -28,12 +28,16 @@ action check_substantial_identity:
     ctx <- context.new 
     mainobs <- ctx.submit(ruaha)
 	assert [mainobs != null]
+		:success "The main observation was created correctly"
+		:fail "The main observation was not created"
 	mid <- mainobs.id
 	resubmitted <- ctx.submit(ruaha)
 	assert [resubmitted != null]
+		:success "The second submission of the same definition returned an observation"
+		:fail "The second submission of the same definition failed"
 	rid <- resubmitted.id
 	assert [mid == rid]
-		:fail "A resubmitted substantial observation is recreated instead of returned"
+		:fail "A resubmitted substantial observation was re-created instead of returned"
 		:success "The resubmitted observation URN is correctly used to key existing observations"
 
 @test(name="Direct quality observation", 
@@ -49,8 +53,8 @@ action resolve_quality:
             :project "klab.staging.vxii")
 	assert 
 		inspector.viable(elevation !nodata) 
-			:success "Andata bene anche stavolta"
-			:fail    "AAAAH, fallito"
+			:success "Generated elevation data are complete and correct"
+			:fail    "No-data values appear in the observation, indicating resolution or computation problems"
 
 @test(name="Implicit quality resolution", 
 	description="Test raw subject submission in a namespace that explains by observing two additional qualities")
