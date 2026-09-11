@@ -21,5 +21,8 @@ define observation testregion as {
 model geography:Tanzania earth:Region
     observing earth:PhysicalEnvironment of each earth:Region;
 
+model earth:PhysicalEnvironment of each earth:Region
+	using klab.generators.random.categories();
+
 private model klab:random:objects:polygons 
-   as each earth:Freshwater earth:Region;
+   as each earth:Region;
