@@ -134,7 +134,6 @@ private model earth:Terrestrial earth:Region
  * 
  * Fake elevation model that will produce credible DEMs using fractals, needing no data.
  */
-@colormap("terrain", center=0)
 private model geography:Elevation in m
    using klab.generators.geospatial.terrain();
 
