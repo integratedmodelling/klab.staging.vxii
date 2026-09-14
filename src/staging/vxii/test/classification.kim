@@ -9,20 +9,17 @@ define observation testregion as {
 		grid: 1.km
 	}
 	time: {
-		// can have year, hour, day, month, ... all admit 'default'
 		year: 2014
-		// from: -- beginning
-		// until: -- if present, period locator represent the beginning. Can say 'next' as
-		//  a default
 		step: 1.day
 	}
 };
 
 model geography:Tanzania earth:Region
-    observing earth:PhysicalEnvironment of each earth:Region;
+    observing 
+		earth:PhysicalEnvironment of each earth:Region;
 
 model earth:PhysicalEnvironment of each earth:Region
 	using klab.generators.random.categories();
 
-private model klab:random:objects:polygons 
+model klab:random:objects:polygons 
    as each earth:Region;
