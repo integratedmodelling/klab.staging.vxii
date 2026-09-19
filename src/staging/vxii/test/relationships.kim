@@ -18,7 +18,6 @@ define observation testregion as {
 	}
 };
 
-
 model earth:Terrestrial earth:Region
 	observing each earth:StreamConnection;
 
