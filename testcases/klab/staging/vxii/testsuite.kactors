@@ -92,3 +92,4 @@ action storage_views:
     assert inspector.scancheck(ctx, elevation, "D2_YX", 3, 8)
     assert inspector.scancheck(ctx, elevation, "D2_XInvY", 7, 8)
     console.println(inspector.celltext(ctx, elevation, "D2_YX", 0))
+    assert inspector.unitcheck(ctx, elevation, "mm", 1000, 0)
