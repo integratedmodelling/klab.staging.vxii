@@ -29,3 +29,6 @@ model earth:Erosion
    // scalar-context reference is made. Scalar syntax (#[...]) can be used to
    // force scalar evaluation if necessary.
    set elevation to [elevation - 10];
+
+private model geography:Elevation in m
+   using klab.generators.geospatial.terrain();
