@@ -1,4 +1,4 @@
-namespace staging.vxii.test.process.basic
+private namespace staging.vxii.test.process.basic
    version 1.0;
 
 @test
@@ -24,7 +24,7 @@ model earth:Terrestrial earth:Region
 @time(step=1.month)
 model earth:Erosion
    // dependency must inhere to the Region
-   observing geography:Elevation in m
+   observing geography:Elevation in m named elevation
    // promotion to scalar is automatic when applied to a quality, unless no 
    // scalar-context reference is made. Scalar syntax (#[...]) can be used to
    // force scalar evaluation if necessary.

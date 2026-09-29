@@ -2,7 +2,7 @@ private namespace staging.vxii.test.relationships
     version 1.0;
 
 @test
-define observation testregion as {
+define observation testrelationships as {
 	semantics: earth:Terrestrial earth:Region
 	space: {
 		shape: "EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))"
