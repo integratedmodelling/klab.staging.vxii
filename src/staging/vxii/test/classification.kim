@@ -3,7 +3,7 @@ private namespace staging.vxii.test.classification
 
 @test
 define observation testregion as {
-	semantics: geography:Tanzania earth:Region
+	semantics: earth:Terrestrial earth:Region
 	space: {
 		shape: "EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))"
 		grid: 1.km
@@ -14,7 +14,7 @@ define observation testregion as {
 	}
 };
 
-model geography:Tanzania earth:Region
+model earth:Terrestrial earth:Region
     observing 
 		earth:PhysicalEnvironment of each earth:Region;
 
