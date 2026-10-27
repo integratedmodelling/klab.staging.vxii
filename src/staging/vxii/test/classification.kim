@@ -21,5 +21,7 @@ model earth:Terrestrial earth:Region
 model earth:PhysicalEnvironment of each earth:Region
 	using klab.generators.random.categories();
 
-model klab:random:objects:polygons 
+// Populate every cell of a small random subdivision, ensuring at least one bare Region.
+// Three divisions per axis keep each maximum step below the full envelope width.
+model klab:random:objects:polygons {fraction: 1, xdivs: 3, ydivs: 3}
    as each earth:Region;

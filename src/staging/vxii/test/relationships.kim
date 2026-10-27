@@ -21,8 +21,9 @@ define observation testrelationships as {
 model earth:Terrestrial earth:Region
 	observing each earth:StreamConnection;
 
-// fake stream junctions
-model klab:random:objects:points
+// Probability 1 fills every generated grid cell, ensuring enough endpoints for connections.
+// Coordinates and subdivision counts remain random; the relationship fraction below is a percent.
+model klab:random:objects:points {fraction: 1, xdivs: 10, ydivs: 10}
    as each earth:StreamJunction;
 
 // fake stream connection joining stream junctions
