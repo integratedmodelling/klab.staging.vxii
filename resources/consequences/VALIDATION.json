@@ -1,0 +1,148 @@
+{
+  "purpose": "Opt-in isolated source-fixture export; not automatic canonical suite coverage",
+  "fixtures": [
+    {
+      "pack": "roles-minimal",
+      "path": "src/imod.kwv",
+      "expected": "9e1edb3c1629b17d5f0543dc994c500083b0531b522f472cdcd73ef43a3cda52",
+      "actual": "9e1edb3c1629b17d5f0543dc994c500083b0531b522f472cdcd73ef43a3cda52",
+      "exact": true
+    },
+    {
+      "pack": "roles-minimal",
+      "path": "src/consequence/roles/process.kim",
+      "expected": "cf97c2678b03aa52bd67c8c3aa2f98fa5db1f8c34fe357a7a577cd74aab8cd50",
+      "actual": "cf97c2678b03aa52bd67c8c3aa2f98fa5db1f8c34fe357a7a577cd74aab8cd50",
+      "exact": true
+    },
+    {
+      "pack": "roles-minimal",
+      "path": "testcases/consequence/roles/testsuite.kactors",
+      "expected": "92d6e9520d824749c8ea41b385e4a55a2a0aa9485f0d4d7c737e8c23803d6698",
+      "actual": "92d6e9520d824749c8ea41b385e4a55a2a0aa9485f0d4d7c737e8c23803d6698",
+      "exact": true
+    },
+    {
+      "pack": "roles-minimal",
+      "path": "strategies/observations.obs",
+      "expected": "b5a6217d2767b7f63fc6affe10c2207fd79978843fa87c2cb42eb3f3d223c578",
+      "actual": "b5a6217d2767b7f63fc6affe10c2207fd79978843fa87c2cb42eb3f3d223c578",
+      "exact": true
+    },
+    {
+      "pack": "configurations-dependent",
+      "path": "src/imod.kwv",
+      "expected": "2e82278579621edee362dfe32a16fa372d778e535bb5cd0f361081b91da63c20",
+      "actual": "2e82278579621edee362dfe32a16fa372d778e535bb5cd0f361081b91da63c20",
+      "exact": true
+    },
+    {
+      "pack": "configurations-dependent",
+      "path": "strategies/observations.obs",
+      "expected": "044b99170f41fc2105e3d81849c532df16e2c02a38846e65774b69eb428f2fd0",
+      "actual": "044b99170f41fc2105e3d81849c532df16e2c02a38846e65774b69eb428f2fd0",
+      "exact": true
+    },
+    {
+      "pack": "configurations-dependent",
+      "path": "src/consequence/configurations/network.kim",
+      "expected": "f3e9713ebf56e43db9dfa86af0334d4dc6f9ec5ff3414127736159f4fc2b06a1",
+      "actual": "f3e9713ebf56e43db9dfa86af0334d4dc6f9ec5ff3414127736159f4fc2b06a1",
+      "exact": true
+    },
+    {
+      "pack": "configurations-dependent",
+      "path": "src/consequence/configurations/update.kim",
+      "expected": "0c487e46bafd96100c89d738edfd7b23445813507d0b65dc7113ec345635152b",
+      "actual": "0c487e46bafd96100c89d738edfd7b23445813507d0b65dc7113ec345635152b",
+      "exact": true
+    },
+    {
+      "pack": "configurations-dependent",
+      "path": "testcases/consequence/configurations/testsuite.kactors",
+      "expected": "53d9f53a84d9d5c7fc84bf047bd21b8925c6255e89ec2c6c31472ab50733f408",
+      "actual": "53d9f53a84d9d5c7fc84bf047bd21b8925c6255e89ec2c6c31472ab50733f408",
+      "exact": true
+    }
+  ],
+  "role_acceptance": "8/8 complete cycle drain; genuine absent-model characterization",
+  "configuration_acceptance": "20/20 original assertions; correct Runtime-log corroboration; original raw stale-log wrapper failure retained",
+  "canonical_suite_rerun": false,
+  "cessation_live_acceptance": false,
+  "credentials_or_private_data_included": false,
+  "hash_scope": "Original fixture rows record raw accepted input bytes. Git may normalize line endings; git_blob_provenance records committed bytes separately. Neither hash is reusable execution/admission authority; fresh ingestion must issue its own receipts.",
+  "git_blob_provenance": [
+    {
+      "path": "resources/consequences/roles-minimal/src/imod.kwv",
+      "acceptedRawSHA256": "9e1edb3c1629b17d5f0543dc994c500083b0531b522f472cdcd73ef43a3cda52",
+      "workingTreeSHA256": "9e1edb3c1629b17d5f0543dc994c500083b0531b522f472cdcd73ef43a3cda52",
+      "gitBlobSHA256": "ae6224ba332deb1fb3de2f58f341efbfe1ee02a6ce00444cb398779a73817a13",
+      "onlyGitLineEndingDifference": true,
+      "blobExactAccepted": false
+    },
+    {
+      "path": "resources/consequences/roles-minimal/src/consequence/roles/process.kim",
+      "acceptedRawSHA256": "cf97c2678b03aa52bd67c8c3aa2f98fa5db1f8c34fe357a7a577cd74aab8cd50",
+      "workingTreeSHA256": "cf97c2678b03aa52bd67c8c3aa2f98fa5db1f8c34fe357a7a577cd74aab8cd50",
+      "gitBlobSHA256": "cf97c2678b03aa52bd67c8c3aa2f98fa5db1f8c34fe357a7a577cd74aab8cd50",
+      "onlyGitLineEndingDifference": true,
+      "blobExactAccepted": true
+    },
+    {
+      "path": "resources/consequences/roles-minimal/testcases/consequence/roles/testsuite.kactors",
+      "acceptedRawSHA256": "92d6e9520d824749c8ea41b385e4a55a2a0aa9485f0d4d7c737e8c23803d6698",
+      "workingTreeSHA256": "92d6e9520d824749c8ea41b385e4a55a2a0aa9485f0d4d7c737e8c23803d6698",
+      "gitBlobSHA256": "92d6e9520d824749c8ea41b385e4a55a2a0aa9485f0d4d7c737e8c23803d6698",
+      "onlyGitLineEndingDifference": true,
+      "blobExactAccepted": true
+    },
+    {
+      "path": "resources/consequences/roles-minimal/strategies/observations.obs",
+      "acceptedRawSHA256": "b5a6217d2767b7f63fc6affe10c2207fd79978843fa87c2cb42eb3f3d223c578",
+      "workingTreeSHA256": "b5a6217d2767b7f63fc6affe10c2207fd79978843fa87c2cb42eb3f3d223c578",
+      "gitBlobSHA256": "da72f0eb9e9cf48100c30fab95a5b2c4c33c549e81c9ad3225ee97553b374073",
+      "onlyGitLineEndingDifference": true,
+      "blobExactAccepted": false
+    },
+    {
+      "path": "resources/consequences/configurations-dependent/src/imod.kwv",
+      "acceptedRawSHA256": "2e82278579621edee362dfe32a16fa372d778e535bb5cd0f361081b91da63c20",
+      "workingTreeSHA256": "2e82278579621edee362dfe32a16fa372d778e535bb5cd0f361081b91da63c20",
+      "gitBlobSHA256": "318949e60d932a507a805cfbebc078da93481010497125d01e8e1a2a9c02bbc3",
+      "onlyGitLineEndingDifference": true,
+      "blobExactAccepted": false
+    },
+    {
+      "path": "resources/consequences/configurations-dependent/strategies/observations.obs",
+      "acceptedRawSHA256": "044b99170f41fc2105e3d81849c532df16e2c02a38846e65774b69eb428f2fd0",
+      "workingTreeSHA256": "044b99170f41fc2105e3d81849c532df16e2c02a38846e65774b69eb428f2fd0",
+      "gitBlobSHA256": "044b99170f41fc2105e3d81849c532df16e2c02a38846e65774b69eb428f2fd0",
+      "onlyGitLineEndingDifference": true,
+      "blobExactAccepted": true
+    },
+    {
+      "path": "resources/consequences/configurations-dependent/src/consequence/configurations/network.kim",
+      "acceptedRawSHA256": "f3e9713ebf56e43db9dfa86af0334d4dc6f9ec5ff3414127736159f4fc2b06a1",
+      "workingTreeSHA256": "f3e9713ebf56e43db9dfa86af0334d4dc6f9ec5ff3414127736159f4fc2b06a1",
+      "gitBlobSHA256": "b88de093379f566e2efbdef3eaefd9a23956741ea1cfb7faad9c14aec3c20f17",
+      "onlyGitLineEndingDifference": true,
+      "blobExactAccepted": false
+    },
+    {
+      "path": "resources/consequences/configurations-dependent/src/consequence/configurations/update.kim",
+      "acceptedRawSHA256": "0c487e46bafd96100c89d738edfd7b23445813507d0b65dc7113ec345635152b",
+      "workingTreeSHA256": "0c487e46bafd96100c89d738edfd7b23445813507d0b65dc7113ec345635152b",
+      "gitBlobSHA256": "8b24970502545a52531a009b49cd1a9d57363ed0e04592bb7109c5757cd3af82",
+      "onlyGitLineEndingDifference": true,
+      "blobExactAccepted": false
+    },
+    {
+      "path": "resources/consequences/configurations-dependent/testcases/consequence/configurations/testsuite.kactors",
+      "acceptedRawSHA256": "53d9f53a84d9d5c7fc84bf047bd21b8925c6255e89ec2c6c31472ab50733f408",
+      "workingTreeSHA256": "53d9f53a84d9d5c7fc84bf047bd21b8925c6255e89ec2c6c31472ab50733f408",
+      "gitBlobSHA256": "3cd45b6fc0bac6ab136e66f0a4c906f41857e52395f996342d366a994fb671b2",
+      "onlyGitLineEndingDifference": true,
+      "blobExactAccepted": false
+    }
+  ]
+}
