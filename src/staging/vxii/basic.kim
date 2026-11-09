@@ -147,6 +147,7 @@ private model geography:Slope in degree_angle
  */
 private model klab:random:data:poisson as geography:Aspect in degree_angle;
 
+
 /**
  * Test for computed expressions. Drop after `cotechino`.
  *
@@ -155,8 +156,8 @@ private model klab:random:data:poisson as geography:Aspect in degree_angle;
 // Deferred exploratory model: StreambedGradient is now a dimensionless ratio over a stream reach.
 // These regional Elevation/Slope inputs do not establish its required stream bearer.
 // Keep this inactive until an explicit reach-based computation is supplied.
-// private model geography:StreambedGradient in degree_angle
-//    observing
-//    		geography:Elevation in m,
-//    		geography:Slope in degree_angle
-//    set to [(elevation.max - elevation)/slope];
+private model geography:StreambedGradient in degree_angle
+   observing
+   		geography:Elevation in m,
+   		geography:Slope in degree_angle
+   set to [(elevation.max - elevation)/slope];
