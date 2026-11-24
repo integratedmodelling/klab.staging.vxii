@@ -3,25 +3,25 @@ private namespace staging.vxii.test.classification
 
 @test
 define observation testregion as {
-	semantics: earth:Terrestrial earth:Region
-	space: {
-		shape: "EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))"
-		grid: 1.km
-	}
-	time: {
-		year: 2014
-		step: 1.day
-	}
+    semantics: earth:Terrestrial earth:Region
+    space: {
+        shape: "EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))"
+        grid: 1.km
+    }
+    time: {
+        year: 2014
+        step: 1.day
+    }
 };
 
 model earth:Terrestrial earth:Region
-    observing 
-		earth:PhysicalEnvironment of each earth:Region;
+    observing
+        earth:PhysicalEnvironment of each earth:Region;
 
 model earth:PhysicalEnvironment of each earth:Region
-	using klab.generators.random.categories();
+    using klab.generators.random.categories();
 
 // Populate every cell of a small random subdivision, ensuring at least one bare Region.
 // Three divisions per axis keep each maximum step below the full envelope width.
 model klab:random:objects:polygons {fraction: 1, xdivs: 3, ydivs: 3}
-   as each earth:Region;
+    as each earth:Region;

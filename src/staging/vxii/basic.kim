@@ -1,5 +1,5 @@
 namespace staging.vxii.basic
-	version 1.0;
+    version 1.0;
 
 /***
  * TODO
@@ -28,30 +28,30 @@ namespace staging.vxii.basic
  */
 @test
 define observation testregion as {
-	semantics: earth:Terrestrial earth:Region
-	space: {
-		shape: "EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))"
-		grid: 1.km
-	}
-	time: {
-		// can have year, hour, day, month, ... all admit 'default'
-		year: 2014
-		// from: -- beginning
-		// until: -- if present, period locator represent the beginning. Can say 'next' as
-		//  a default
-		step: 1.day
-	}
+    semantics: earth:Terrestrial earth:Region
+    space: {
+        shape: "EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))"
+        grid: 1.km
+    }
+    time: {
+        // can have year, hour, day, month, ... all admit 'default'
+        year: 2014
+        // from: -- beginning
+        // until: -- if present, period locator represent the beginning. Can say 'next' as
+        //  a default
+        step: 1.day
+    }
 };
 
 define observation largerregion as {
-	semantics: earth:Terrestrial earth:Region, 
-	space: {
-		shape: 'EPSG:4326 POLYGON ((77.11183309467745 28.558406270223728, 77.13158011521391 28.57649245320077, 77.1527376372173 28.55914959926227, 77.13355481726757 28.54056479885392, 77.11183309467745 28.558406270223728))',
-		grid: 1.km
-	},
-	time: {
-		year: 2014
-	}
+    semantics: earth:Terrestrial earth:Region,
+    space: {
+        shape: 'EPSG:4326 POLYGON ((77.11183309467745 28.558406270223728, 77.13158011521391 28.57649245320077, 77.1527376372173 28.55914959926227, 77.13355481726757 28.54056479885392, 77.11183309467745 28.558406270223728))',
+        grid: 1.km
+    },
+    time: {
+        year: 2014
+    }
 };
 
 // yes - this can also be put in as config, built based on user and modified
@@ -64,36 +64,36 @@ define observation largerregion as {
 //
 // Using `geometry: explorer` should link to a geometry communication channel
 define observer testobserver as {
-   space: { 
-   		shape: "EPSG:4326 POLYGON ((43.28872310842408 -13.295192955773103, 26.248928186549076 -13.295192955773103, 26.248928186549076 -0.7159235681670992, 43.28872310842408 -0.7159235681670992, 43.28872310842408 -13.295192955773103))"
-   	}
-   	time: {
-   		year: 2012
-   	}
-   semantics: valuation:Stakeholder society:HumanIndividual
+    space: {
+        shape: "EPSG:4326 POLYGON ((43.28872310842408 -13.295192955773103, 26.248928186549076 -13.295192955773103, 26.248928186549076 -0.7159235681670992, 43.28872310842408 -0.7159235681670992, 43.28872310842408 -13.295192955773103))"
+    }
+    time: {
+        year: 2012
+    }
+    semantics: valuation:Stakeholder society:HumanIndividual
 };
 
 
 // identical, but it's another observation because the URN is different.
 define observation cotechino as {
-	semantics: earth:Terrestrial earth:Region
-	space: {
-		shape: "EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))"
-		grid: 1.km
-	}
-	time: {
-		// can have year, hour, day, month, ... all admit 'default'
-		year: 2014
-		// from: -- beginning
-		// until: -- if present, period locator represent the beginning. Can say 'next' as
-		//  a default
-		step: 1.day
-	}
+    semantics: earth:Terrestrial earth:Region
+    space: {
+        shape: "EPSG:4326 POLYGON((33.796 -7.086, 35.946 -7.086, 35.946 -9.41, 33.796 -9.41, 33.796 -7.086))"
+        grid: 1.km
+    }
+    time: {
+        // can have year, hour, day, month, ... all admit 'default'
+        year: 2014
+        // from: -- beginning
+        // until: -- if present, period locator represent the beginning. Can say 'next' as
+        //  a default
+        step: 1.day
+    }
 };
 
 // temp
 private model earth:Terrestrial earth:Region
-	observing
+    observing
 		/**
 		 * TODO
 		 * Dependencies for substantials are always collective, but if `each` is explicitly given the
@@ -101,9 +101,9 @@ private model earth:Terrestrial earth:Region
 		 * collective observation and use it for all observations. This can be overridden by adding
 		 * @resolution(individual|collective) to the models for the collective.
 		 */
-	    each earth:Freshwater earth:Region,
-		geography:Elevation in m,
-		geography:Slope in degree_angle;
+        each earth:Freshwater earth:Region,
+        geography:Elevation in m,
+        geography:Slope in degree_angle;
 
 // you wish
 // model presence of (infrastructure:Building whose economics:MarketValue > 2000000.EUR@2015)
@@ -117,11 +117,11 @@ private model earth:Terrestrial earth:Region
  * Fake elevation model that will produce credible DEMs using fractals, needing no data.
  */
 private model geography:Elevation in m
-   using klab.generators.geospatial.terrain();
+    using klab.generators.geospatial.terrain();
 
 // fake freshwater regions
-private model klab:random:objects:polygons 
-   as each earth:Freshwater earth:Region;
+private model klab:random:objects:polygons
+    as each earth:Freshwater earth:Region;
 
 /**
  * # Generated slope surface
@@ -132,11 +132,11 @@ private model klab:random:objects:polygons
  * @warning if an elevation surface is also generated, the slope profile will *not* correspond to it.
  */
 private model geography:Slope in degree_angle
-   using klab.generators.geospatial.terrain(roughness = 0.9, detail = 9, range = 0 to 80);
-   
+    using klab.generators.geospatial.terrain(roughness = 0.9, detail = 9, range = 0 to 80);
+
 // private model earth:PhysicalEnvironment of each earth:Location
 // 	using klab.generators.random.classifier(root={{earth:PhysicalEnvironment}});  
-   
+
 /**
  * # Generated aspect surface
  * 
@@ -155,9 +155,9 @@ private model klab:random:data:poisson as geography:Aspect in degree_angle;
  */
 // Deferred exploratory model: StreambedGradient is now a dimensionless ratio over a stream reach.
 // These regional Elevation/Slope inputs do not establish its required stream bearer.
-// Keep this inactive until an explicit reach-based computation is supplied.
+// Containment enables dependencies that inhere to Region instead of the observable's own bearer.
 private model geography:StreambedGradient in degree_angle
-   observing
-   		geography:Elevation in m,
-   		geography:Slope in degree_angle
-   set to [(elevation.max - elevation)/slope];
+    observing
+        geography:Elevation in m,
+        geography:Slope in degree_angle
+    set to [(elevation.max - elevation)/slope];
